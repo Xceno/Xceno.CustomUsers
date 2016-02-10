@@ -1,0 +1,10 @@
+﻿@model Xceno.CustomUsers.Models.CustomSettingsPart
+<fieldset>
+	<legend>@T("Custom settings")</legend>
+    <div>
+        @Html.EditorFor(m => m.CustomUserActivationApprovesOrchardUser)
+        <label class="forcheckbox" for="@Html.FieldIdFor(m => m.CustomUserActivationApprovesOrchardUser)">
+            @T("The usage of a custom-activation-code always approves the underlying orchard user, regardless of the site settings.")
+        </label>
+    </div>
+</fieldset>

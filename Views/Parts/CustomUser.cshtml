@@ -1,0 +1,6 @@
+﻿@using Xceno.CustomUsers.Models
+@model dynamic
+@{
+	var user = (CustomUserPart)this.Model.ContentItem.CustomUserPart;
+}
+@user.LastName

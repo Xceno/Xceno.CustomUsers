@@ -1,0 +1,5 @@
+﻿@if ( WorkContext.CurrentUser != null && Request.IsAuthenticated )
+{
+    <div id="UserProfileView" ui-view></div>
+    @Display.AngularDebugWindow()
+}

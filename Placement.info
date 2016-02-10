@@ -1,0 +1,11 @@
+﻿<Placement>
+	<Match ContentType="CustomUser">
+		<Match DisplayType="Summary">
+			<Place Parts_CustomUser="Content:1"/>
+		</Match>
+		<Match DisplayType="Detail">
+			<Place Parts_CustomUser="Content:1"/>
+		</Match>
+		<Place Parts_Media_Edit="-"/>
+	</Match>
+</Placement>

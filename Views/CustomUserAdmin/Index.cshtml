@@ -1,0 +1,8 @@
+﻿<div class="user-manager-wrapper" ng-app="myApp.userManager">
+	@Html.AntiForgeryToken()
+	<div id="UserManager" ui-view></div>
+</div>
+
+<p>As you can see in the source we use an angular app here. But you could easily display a simple UserList with your customUsers here.</p>
+<p>Tip: Edit the ContentDefinition of the CustomUser-Part and check "Listable", so you can see the users at the "Content" page
+<br/><br/>Check Xceno.CustomUsers.Routes.MvcRoutes to see which routes u can use</p>

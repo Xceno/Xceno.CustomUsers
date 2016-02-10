@@ -1,0 +1,11 @@
+﻿Name: Xceno.CustomUsers
+AntiForgery: enabled
+Author: Xceno
+Website: http://orchardproject.net
+Version: 1.0
+OrchardVersion: 1.9
+Description: A module demonstrating my approach to customize users and use an invitation-system
+Features:
+	Xceno.CustomUsers:
+		Description:  A module demonstrating my approach to customize users and use an invitation-system
+		Dependencies: Orchard.Users

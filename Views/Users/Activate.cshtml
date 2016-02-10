@@ -1,0 +1,72 @@
+﻿@using Xceno.CustomUsers
+@model Xceno.CustomUsers.ViewModels.CustomUserActivate
+
+@{
+	ViewBag.Title = "Zugang aktivieren";
+	ViewBag.LocalBarHeading = "Benutzeraktivierung";
+
+	var modelText = string.IsNullOrWhiteSpace(this.Model.WelcomeText)
+		? new MvcHtmlString("<h4>Welcome!</h4><p>blablabla.</p>")
+		: new MvcHtmlString(Model.WelcomeText);
+}
+
+<div class="main-page container">
+	<div class="content top-double-gap">
+		<div class="row">
+			<div class="col-md-7" style="padding-top: 2px;">
+				<div class="text-left text-info">
+					<p style="font-size: 16px; line-height: 1em;">
+						@modelText
+					</p>
+				</div>
+			</div>
+
+			@using ( Html.BeginFormAntiForgeryPost(Url.Action("Activate", new { controller = "Users", area = Statics.ModuleAreaName }), FormMethod.Post, new { @class = "col-md-5" }) )
+			{
+				<div>
+					@Html.HiddenFor(m => m.UserName)
+					@Html.HiddenFor(m => m.ActivationCode)
+					@Html.HiddenFor(m => m.WelcomeText)
+
+					@this.Html.ValidationSummary(false, null, new {@class="alert alert-warning"})
+					
+
+					<div class="form-group">
+						@Html.LabelFor(m => m.UserName)
+						@Html.TextBoxFor(m => m.UserName, new { disabled = "disabled", @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.UserName, null, new { @class = "help-block", style = "color:#a94442;" })
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(m => m.ActivationCode)
+						@Html.TextBoxFor(m => m.ActivationCode, new { disabled = "disabled", @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.ActivationCode, null, new { @class = "help-block", style = "color:#a94442;" })
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Email, T("Email"))
+						@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-block", style = "color:#a94442;" })
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Password)
+						@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-block", style="color:#a94442;" })
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(m => m.ConfirmPassword)
+						@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+						@Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "help-block", style = "color:#a94442;" })
+					</div>
+				</div>
+				<hr />
+				<div class="bottom-gap">
+					<div class="btn-group pull-right">
+						<a href="/" class="btn btn-default">Abbrechen</a>
+						<button type="submit" value="Benutzer aktivieren" class="btn btn-success">Benutzer aktivieren</button>
+					</div>
+				</div>}
+
+		</div>
+	</div>
+</div>

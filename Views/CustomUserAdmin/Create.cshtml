@@ -1,0 +1,9 @@
+﻿@{
+	Layout.Title = "Create Custom-User";
+}
+
+@using ( Html.BeginFormAntiForgeryPost() )
+{
+	@Html.ValidationSummary()
+	@Display(Model)
+}
